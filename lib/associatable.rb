@@ -23,24 +23,6 @@ class BelongsToOptions < AssocOptions
     default_options.merge(options).each do |option, val|
       self.send("#{option}=", val)
     end
-
-    # if options.keys.include?(:foreign_key)
-    #   @foreign_key = options[:foreign_key]
-    # else
-    #   @foreign_key = ("#{name}_id").to_sym
-    # end
-    #
-    # if options.keys.include?(:primary_key)
-    #   @primary_key = options[:primary_key]
-    # else
-    #   @primary_key = :id
-    # end
-    #
-    # if options.keys.include?(:class_name)
-    #   @class_name = options[:class_name].to_s
-    # else
-    #   @class_name = name.capitalize.to_s
-    # end
   end
 end
 
@@ -55,24 +37,6 @@ class HasManyOptions < AssocOptions
     default_options.merge(options).each do |option, val|
       self.send("#{option}=", val)
     end
-
-    # if options.keys.include?(:foreign_key)
-    #   @foreign_key = options[:foreign_key]
-    # else
-    #   @foreign_key = (self_class_name.to_s.downcase + '_id').to_sym
-    # end
-    #
-    # if options.keys.include?(:primary_key)
-    #   @primary_key = options[:primary_key]
-    # else
-    #   @primary_key = :id
-    # end
-    #
-    # if options.keys.include?(:class_name)
-    #   @class_name = options[:class_name]
-    # else
-    #   @class_name = name.to_s.singularize.capitalize
-    # end
   end
 end
 
