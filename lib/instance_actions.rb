@@ -24,6 +24,7 @@ module InstanceActions
       WHERE
         id = ?
     SQL
+    self 
   end
 
   def save

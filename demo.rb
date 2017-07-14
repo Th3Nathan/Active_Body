@@ -1,5 +1,5 @@
-require_relative 'sql_object'
-require_relative 'db_connection'
+require_relative 'lib/sql_object'
+require_relative 'lib/db_connection'
 
 class Human < SQLObject
   self.table_name = "humans"
@@ -13,12 +13,12 @@ class Human < SQLObject
 end
 
 class Cat < SQLObject
-
   belongs_to :owner,
   primary_key: :id,
   foreign_key: :owner_id,
   class_name: 'Human'
 
+  #cats do not store references to homes, but thier owner does
   has_one_through :home, :owner, :house
 end
 

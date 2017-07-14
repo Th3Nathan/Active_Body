@@ -1,16 +1,28 @@
 # Active Body
 
-Active Body is an Object Relational Mapping system based on Rails Active Record. It can be used for grouping and selecting database tables, inserting into and updating the database, and intuitively performing table joins through associations.
+Active Body is an Object Relational Mapping system based on Rails Active Record. It can be used for grouping and selecting database tables, inserting into and updating the database, searching the database, and intuitively performing table joins through associations.
 
-  * Select database items by row
-  * Search the database
-  * Select data through associations
-  * Update and create database instances
-  * Queue functions until DOM is fully loaded
 
 ## Getting Started
 
-To try out Active Body, download the file and install dependencies. View the demo file in the lib folder to see how data models can be structured. Then, load the demo file in PRY to test out the API.
+Use the following commands to clone the repository, install dependencies, and enter the console.
+ * git clone www.github.com/th3nathan/Active_Body
+ * cd Active_Body
+ * bundle install
+ * apt-get install libsqlite3-dev (if sqlite3 is not installed)
+ * pry
+ * load 'demo.rb'
+
+ Now try out the API, here are some suggestions.
+ * Cat.first.home
+ * Cat.where({"name" => "Cammy"})
+ * first_cat = Cat.first
+ * first_cat.name = "Nathan"
+ * first_cat.update
+ * Cat.first
+
+
+
 
 ### Manipulating the Database
 
@@ -24,7 +36,7 @@ Updates an instance that is already stored in the database
 
 #### `#save`
 
-Updates instance if already stored in the database. Inserts if the instance is new.
+Updates instance if already stored in the database. Inserts if the instance is not in the database.
 
 ### Searching
 
@@ -64,6 +76,5 @@ Traverses a through association to arrive at a narrowed-down source association 
   #Cat model
   has_one_through :home, :owner, :house
 ```
-This would find all houses which have the same human owner as the cat.
-ck");
+This would find the house which have the same owner as the cat.
 ```
